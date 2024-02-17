@@ -1,0 +1,30 @@
+.form {
+   margin-top: 1em;
+   padding: 0 .5em;
+   display: flex;
+   flex-direction: column;
+   gap: 2em;
+}
+
+.form_input-group {
+   display: flex;
+   flex-direction: column;
+   align-items: baseline;
+   gap: .5em;
+}
+
+.form_input, .form_text-area {
+   padding: .5em;
+   border-radius: .3em;
+}
+
+.form_save-btn {
+   margin-right: 1em;
+   background-color: hsl(240, 40%, 50%);
+   color: hsl(0, 0%, 100%);
+}
+
+.form_cancel-btn {
+   background-color: hsl(0, 0%, 50%);
+   color: white;
+}
