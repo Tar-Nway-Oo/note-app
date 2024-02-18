@@ -1,5 +1,6 @@
 .header {
    padding: 0 .5em;
+   border-bottom: .5px solid hsl(0, 0%, 90%);
    display: flex;
    align-items: center;
    gap: 1em;
@@ -7,4 +8,34 @@
 
 .header_heading {
    margin-right: auto;
+}
+
+.header_new-btn {
+   background-color: hsl(240, 40%, 50%);
+   color: hsl(0, 0%, 100%);
+}
+
+.note-card_container {
+   padding: 1em .5em;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+   gap: 1em;
+}
+
+.note-card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0 0 5px .25px hsl(0, 0%, 50%);  
+   border-radius: .3em; 
+   transition: box-shadow 100ms ease-in-out;
+}
+
+.note-card:hover, .note-card:focus {
+   box-shadow: 0 0 10px .25px hsl(0, 0%, 50%);
+}
+
+.note-card_title {
+   font-size: 1.3rem;
 }

@@ -1,0 +1,12 @@
+.note-detail {
+   padding: 1em;
+}
+
+.note-detail_title {
+   font-size: 2rem;
+   text-align: center;
+}
+
+.note-detail_body {
+   line-height: 1.5em;
+}

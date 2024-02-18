@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import { v4 as uuidV4 } from "uuid"
 import Home from "./pages/Home"
 import NewNote from "./pages/NewNote"
+import NoteDetail from "./pages/NoteDetail"
 
 export type Note = {
   id: string
@@ -25,6 +26,7 @@ export default function App() {
     <Routes>
       <Route path="/">
          <Route index element={<Home notes={notes} />} />
+         <Route path=":id" element={<NoteDetail notes={notes} />} />
          <Route path="new" element={<NewNote createNote={createNote} />} />
       </Route>
     </Routes>

@@ -14,8 +14,9 @@ button {
    outline: none;
    box-shadow: 0 0 0 .5px hsl(0, 0%, 50%);
    transition: opacity 100ms ease-in-out;
+   cursor: pointer;
 }
 
-button:hover {
+button:hover, button:focus {
    opacity: .8;
 }
