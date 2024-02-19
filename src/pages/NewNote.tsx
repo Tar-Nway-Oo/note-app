@@ -1,6 +1,6 @@
 import NoteForm from "../components/NoteForm"
 import { NoteData } from "../App"
-import "../assets/new.css"
+import "../assets/css/new.css"
 
 type NewNoteProps = {
   createNote: (data: NoteData) => void

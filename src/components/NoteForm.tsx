@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { NoteData } from "../App"
-import "../assets/new.css"
+import "../assets/css/new.css"
 
 type NoteFormProps = {
    createNote: (data: NoteData) => void

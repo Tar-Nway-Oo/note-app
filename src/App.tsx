@@ -22,10 +22,14 @@ export default function App() {
      setNotes(prevNotes => ([...prevNotes, {id: uuidV4(), title: title, body: body}]))
   }
 
+  function deleteNote(id: string) {
+    setNotes(prevNotes => (prevNotes.filter(note => note.id !== id)))
+  }
+
   return (
     <Routes>
       <Route path="/">
-         <Route index element={<Home notes={notes} />} />
+         <Route index element={<Home notes={notes} deleteNote={deleteNote} />} />
          <Route path=":id" element={<NoteDetail notes={notes} />} />
          <Route path="new" element={<NewNote createNote={createNote} />} />
       </Route>

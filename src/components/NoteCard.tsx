@@ -1,13 +1,26 @@
 import { Link } from "react-router-dom"
 import { Note } from "../App"
-import "../assets/home.css"
+import deleteIcon from "../assets/icons/cross-circle-svgrepo-com.svg"
+import "../assets/css/home.css"
 
-export default function NoteCard({id, title}: Note) {
+type NoteCardProps = {
+  editIsOpen: boolean
+  deleteNote: (id: string) => void
+} & Note
+
+export default function NoteCard({id, title, editIsOpen, deleteNote}: NoteCardProps) {
   return (
-      <Link to={id} style={{textDecoration: "none", color: "black", margin: 0, padding: 0}}>
-         <div className="note-card">
+    <div className={`note-card ${editIsOpen ? "note-card_active" : ""}`}>
+      { editIsOpen &&
+        <img src={deleteIcon} alt="delete-icon" className="delete-icon"
+          onClick={(e) => {
+          e.stopPropagation()
+          deleteNote(id)
+        }} />
+      }
+      <Link to={id} className={`note-card_link ${editIsOpen ? "disabled-link" : ""}`}>
            <p className="note-card_title">{title}</p>
-         </div>
       </Link>
+    </div>
   )
 }

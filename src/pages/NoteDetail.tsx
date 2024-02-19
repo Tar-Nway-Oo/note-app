@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { Note } from "../App";
-import "../assets/detail.css"
+import "../assets/css/detail.css"
 
 type NoteDetailProps = {
    notes: Note[]
