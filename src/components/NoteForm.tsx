@@ -4,18 +4,20 @@ import { NoteData } from "../App"
 import "../assets/css/new.css"
 
 type NoteFormProps = {
-   createNote: (data: NoteData) => void
-}
+   onSave: (data: NoteData) => void
+} & Partial<NoteData>
 
-export default function NoteForm({createNote}: NoteFormProps) {
+export default function NoteForm({onSave}: NoteFormProps) {
 
   const titleRef = useRef<HTMLInputElement>(null);
   const bodyRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
 
+  
+
   function handleSave() {
      if (titleRef.current == null || bodyRef.current == null || titleRef.current.value === "" || bodyRef.current.value === "" ) return;
-     createNote({title: titleRef.current.value, body: bodyRef.current.value});
+     onSave({title: titleRef.current.value, body: bodyRef.current.value});
      navigate("/");
   }
 

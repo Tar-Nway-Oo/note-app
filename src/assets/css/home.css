@@ -11,8 +11,13 @@
 }
 
 .header_new-btn {
-   background-color: hsl(240, 40%, 50%);
+   background-color: hsl(200, 50%, 50%);
    color: hsl(0, 0%, 100%);
+}
+
+.header_delete-btn {
+   color: hsl(0, 45%, 50%);
+   box-shadow: 0 0 0 .5px hsl(0, 45%, 50%);
 }
 
 .note-card_container {
@@ -28,31 +33,12 @@
    border-radius: .3em; 
    text-align: center;
    transition: box-shadow 100ms ease-in-out;
-}
-
-.note-card:hover, .note-card:focus {
-   box-shadow: 0 0 10px .25px hsl(0, 0%, 50%);
-}
-
-.note-card.note-card_active {
-  box-shadow: 0 0 10px 1px hsl(0, 0%, 50%);
-}
-
-.note-card_link {
    text-decoration: none;
    color: hsl(0, 0%, 0%);
 }
 
-.note-card_link.disabled-link {
-   pointer-events: none;
-}
-
-.delete-icon {
-   width: 15px;
-   cursor: pointer;
-   position: absolute;
-   top: -3px;
-   right: -3px;
+.note-card:hover, .note-card:focus {
+   box-shadow: 0 0 10px .25px hsl(0, 0%, 50%);
 }
 
 .note-card_title {

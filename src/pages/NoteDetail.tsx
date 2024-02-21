@@ -1,24 +1,30 @@
-import { useParams } from "react-router-dom"
+import { Link, useOutletContext, useNavigate } from "react-router-dom"
 import { Note } from "../App";
 import "../assets/css/detail.css"
 
 type NoteDetailProps = {
-   notes: Note[]
+  deleteNote: (id: string) => void
 }
 
-export default function NoteDetail({notes}: NoteDetailProps) {
+export default function NoteDetail({deleteNote}: NoteDetailProps) {
 
-   const {id} = useParams();
+  const {id, title, body}: Note= useOutletContext();
 
-  const selectedNote = notes.find(note => note.id === id);
+   const navigate = useNavigate();
 
-  if (selectedNote == null) return;
-
-  const {title, body} = selectedNote;
-   
   return (
     <div className="note-detail">
-      <p className="note-detail_title">{title}</p>
+      <div className="note-detail_header">
+        <p className="note-detail_title">{title}</p>
+        <div>
+          <Link to="edit"><button className="note-detail_edit-btn">Edit</button></Link>
+          <button className="note-detail_delete-btn" onClick={() => {
+            deleteNote(id)
+            navigate("/")
+          }}>Delete</button>
+          <Link to="/"><button className="note-detail_back-btn">Back</button></Link>
+        </div>
+      </div>
       <p className="note-detail_body"><span style={{marginLeft: "1em"}}></span>{body}</p>
     </div>
   )

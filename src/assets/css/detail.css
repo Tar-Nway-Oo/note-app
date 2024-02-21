@@ -2,9 +2,28 @@
    padding: 1em;
 }
 
+.note-detail_header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
 .note-detail_title {
    font-size: 2rem;
-   text-align: center;
+}
+
+.note-detail_edit-btn {
+   background-color: hsl(200, 50%, 50%);
+   color: hsl(0, 0%, 100%);
+}
+
+.note-detail button {
+   margin-left: .5em;
+}
+
+.note-detail_delete-btn {
+   color: hsl(0, 45%, 50%);
+   box-shadow: 0 0 0 .5px hsl(0, 45%, 50%);
 }
 
 .note-detail_body {

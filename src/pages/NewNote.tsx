@@ -10,7 +10,7 @@ export default function NewNote({createNote}: NewNoteProps) {
 
   return (
     <div>
-      <NoteForm createNote={createNote} />
+      <NoteForm onSave={createNote} />
     </div>
   )
 }
