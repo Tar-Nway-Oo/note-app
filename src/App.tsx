@@ -1,11 +1,11 @@
-import { useState } from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import { v4 as uuidV4 } from "uuid"
 import Home from "./pages/Home"
 import NewNote from "./pages/NewNote"
 import NoteLayout from "./pages/NoteLayout"
 import NoteDetail from "./pages/NoteDetail"
 import EditNote from "./pages/EditNote"
+import { useLocalStorage } from "./hooks/useLocalStorage"
 
 export type Note = {
   id: string
@@ -18,10 +18,13 @@ export type NoteData = {
 
 export default function App() {
 
-  const [notes, setNotes] = useState<Note[]>([]);
+  const [notes, setNotes] = useLocalStorage<Note[]>("NOTES", []);
+
+  const navigate = useNavigate();
 
   function createNote({title, body}: NoteData) {
-     setNotes(prevNotes => ([...prevNotes, {id: uuidV4(), title: title, body: body}]))
+     setNotes(prevNotes => ([...prevNotes, {id: uuidV4(), title: title, body: body}]));
+     navigate("/");
   }
 
   function deleteNotes() {
@@ -29,7 +32,8 @@ export default function App() {
   }
 
   function deleteNote(id: string) {
-    setNotes(prevNotes => (prevNotes.filter(note => note.id !== id)))
+    setNotes(prevNotes => (prevNotes.filter(note => note.id !== id)));
+    navigate("/");
   }
 
   function editNote(id: string, {title, body}: NoteData) {
@@ -39,7 +43,7 @@ export default function App() {
       } else {
         return note
       }
-    })))
+    })));
   }
 
   return (

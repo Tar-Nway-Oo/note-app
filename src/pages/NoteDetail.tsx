@@ -1,4 +1,4 @@
-import { Link, useOutletContext, useNavigate } from "react-router-dom"
+import { Link, useOutletContext } from "react-router-dom"
 import { Note } from "../App";
 import "../assets/css/detail.css"
 
@@ -10,18 +10,13 @@ export default function NoteDetail({deleteNote}: NoteDetailProps) {
 
   const {id, title, body}: Note= useOutletContext();
 
-   const navigate = useNavigate();
-
   return (
     <div className="note-detail">
       <div className="note-detail_header">
         <p className="note-detail_title">{title}</p>
         <div>
           <Link to="edit"><button className="note-detail_edit-btn">Edit</button></Link>
-          <button className="note-detail_delete-btn" onClick={() => {
-            deleteNote(id)
-            navigate("/")
-          }}>Delete</button>
+          <button className="note-detail_delete-btn" onClick={() => deleteNote(id)}>Delete</button>
           <Link to="/"><button className="note-detail_back-btn">Back</button></Link>
         </div>
       </div>
